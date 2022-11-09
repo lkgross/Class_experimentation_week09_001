@@ -50,7 +50,6 @@ if user_response == "N":
     print("Let's quit.")
 if (user_response != 'Y') and (user_response != 'N'):
     print("Error!")
-'''
 
 current_number = 1
 while current_number <= 5:
@@ -71,7 +70,55 @@ prompt = "\nTell me something, and " \
 prompt += "\nEnter 'quit' to end the program. "
 message = ""
 while message != 'quit':
- message = input(prompt)
- if message != 'quit':
-  print(message)
+    message = input(prompt)
+    if message != 'quit':
+        print(message)
 
+# Streamline the while loop, so that we don't have two
+# places in the while loop that check the same condition
+# message != 'quit'.
+
+prompt = "\nTell me something, and " \
+         "I'll repeat it back to you."
+prompt += "\nEnter 'quit' to end the program. "
+message = ""
+while message != 'quit':
+    print(message)
+    message = input(prompt)
+# Does your code work as intended?
+
+# A flag (active) is used to decide whether to continue
+# in the while loop.
+prompt = "\nTell me something, and I'll "
+prompt += "repeat it back to you."
+prompt += "\nEnter 'quit' to end the program. "
+active = True
+while active:
+    message = input(prompt)
+    if message == 'quit':
+        active = False
+    else:
+        print(message)
+
+# Let's try to streamline.
+prompt = "\nTell me something, and I'll "
+prompt += "repeat it back to you."
+prompt += "\nEnter 'quit' to end the program. "
+active = True
+message = ''
+while active:
+    print(message)
+    message = input(prompt)
+    if message == 'quit':
+        active = False
+'''
+
+# Using break to exit while loop.
+prompt = "\nWhat cities have you visited?"
+prompt += "\nEnter 'quit' when you're done. "
+while True:
+    city = input(prompt)
+    if city == 'quit':
+        break
+    else:
+        print(f"I've been to {city}!")
